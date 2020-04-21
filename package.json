@@ -1,0 +1,17 @@
+{
+  "name": "sample-docker-api-node",
+  "version": "0.1.0",
+  "description": "A sample express-based server for demonstrating Docker containers in AWS",
+  "main": "index.js",
+  "dependencies": {
+    "express": "4.17.1",
+    "threads": "1.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": [],
+  "author": "Richard Neil Ilagan <ilagan@amazon.com>",
+  "license": "https://aws.amazon.com/asl"
+}
