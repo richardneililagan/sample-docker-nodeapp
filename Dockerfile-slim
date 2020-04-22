@@ -1,0 +1,27 @@
+FROM node:12.16.2 AS builder
+
+WORKDIR /app
+
+COPY package.json .
+
+RUN npm set progress=false && \
+    npm config set depth 0 && \
+    npm install
+
+COPY . .
+
+# :: --------------------------------------------------------------
+
+FROM node:12.16.2-slim
+
+LABEL maintainer="Richard Neil Ilagan <ilagan@amazon.com>" \
+      company="Amazon Web Services" \
+      url="https://richardneililagan.com" \
+      app="sandbox"
+
+EXPOSE 8000
+
+COPY --from=builder /app .
+
+ENTRYPOINT ["npm", "start"]
+CMD npm run start
